@@ -46,7 +46,7 @@ namespace RS_01.Actors
             
             // _clusterClient.Ask(new ClusterClient.SendToAll("/user/manager", "hello world"))
             //     .Wait();
-            _clusterClient.Ask<GetResult>(new ClusterClient.SendToAll("/user/manager", one))
+            _clusterClient.Ask<GetResult>(new ClusterClient.Send("/user/manager", one))
                 .PipeTo(Self, Sender); // rezultat prosljedujemo Sebi, ali onoga koji nam je poslao Get poruku
             // registriramo kao Sendera kako bi mu u sljedecem koraku poslali odgovor i sebe ugasili.
         }

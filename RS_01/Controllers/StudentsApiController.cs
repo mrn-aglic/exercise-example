@@ -34,7 +34,6 @@ namespace RS_01.Controllers
             var actor = AkkaService.ActorSys.ActorOf(props);
 
             var result = await actor.Ask<GetResult>(new Get(id));
-            Console.WriteLine(result.Json);
             var student = StudentDto.FromWierdAkkaJson(result.Json);
 
             return Ok(student);

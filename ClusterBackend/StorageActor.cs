@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Akka.Actor;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using Shared;
 
 namespace ClusterBackend
@@ -20,7 +22,11 @@ namespace ClusterBackend
         private void HandleGet(Get get)
         {
             var student = _students.FirstOrDefault(s => s.Id == get.Id);
-            var json = student == null ? new JObject() : JObject.FromObject(student);
+            var json = student == null ? new JObject() : JObject.FromObject(student,
+                new JsonSerializer
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
             Console.WriteLine(json);
             Sender.Tell(new GetResult(json));
         }
