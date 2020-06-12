@@ -39,37 +39,39 @@ namespace ClusterBackend
         protected override void PreStart()
         {
             // ovdje cu napuniti neke podatke samo da imam
-            _students = new List<Student>();
-            _students.Add(new Student
-            (
-                1,
-                "ante",
-                "antic",
-                "1234",
-                "email@email.email",
-                5,
-                true
-            ));
-            _students.Add(new Student
-            (
-                2,
-                "ivo",
-                "ivic",
-                "1432",
-                "email@pmfst.com",
-                40,
-                true
-            ));
-            _students.Add(new Student
-            (
-                3,
-                "mate",
-                "matic",
-                "4444",
-                "mate@email.email",
-                60,
-                true
-            ));
+            _students = new List<Student>
+            {
+                new Student
+                (
+                    1,
+                    "ante",
+                    "antic",
+                    "1234",
+                    "email@email.email",
+                    5,
+                    true
+                ),
+                new Student
+                (
+                    2,
+                    "ivo",
+                    "ivic",
+                    "1432",
+                    "email@pmfst.com",
+                    40,
+                    true
+                ),
+                new Student
+                (
+                    3,
+                    "mate",
+                    "matic",
+                    "4444",
+                    "mate@email.email",
+                    60,
+                    true
+                )
+            };
 
             base.PreStart();
         }

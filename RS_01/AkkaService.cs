@@ -27,11 +27,11 @@ namespace RS_01
                 .Add
                 (
                     ActorPath.Parse("akka.tcp://Cluster@localhost:12000/system/receptionist")
+                )
+                .Add
+                (
+                    ActorPath.Parse("akka.tcp://cluster@localhost:12001/system/receptionist")
                 );
-            // .Add
-            // (
-            //     ActorPath.Parse("akka.tcp://cluster@localhost:12001/system/receptionist")
-            // );
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
